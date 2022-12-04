@@ -1,0 +1,87 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font:100% normal Arial, Helvetica, sans-serif;
+}
+form, input, select, textarea {
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+}
+div.formularz h1{
+    text-align: center;
+    color: #ffffff;
+    font-size: 24;
+    padding: 5px 0 5px 5px;
+    border: 1px solid #161712;
+}
+div.formularz {
+    margin: 0 auto;
+    width: 450px;
+    background: #3d3939;
+    position: relative;
+    top: 40px;
+    border: 1px solid #262626;
+    text-align: center;
+}
+
+.ng-valid:not(form) {
+    border: 1px double #171717
+}
+.ng-invalid:not(form) {
+    border: 1px double red
+}
+.ng-untouched:not(form) {
+    border: 1px double #171717
+}
+div.formularz .wpis {
+    padding: 10px 10px;
+    width: 180px;
+    background: #262626;
+}
+div.formularz .produkt {
+    padding: 10px 10px;
+    width: 180px;
+    background: #262626;
+}
+div.formularz .wiadomosc{
+    padding: 7px 7px;
+    width: 300px;
+    height: 100px;
+    background: #262626;
+    border: 1px double #171717;
+    overflow: hidden;
+}
+div.formularz .przycisk{
+    margin: 0 0 10px 0;
+    padding: 4px 10px 0 0;
+    border: 0px;
+    position: relative;
+    top: 10px;
+    width: 100px;
+}
+
+div.formularz label {
+    width: 100%;
+    display: block;
+    background: #1b1616;
+    border-top: 1px solid #262626;
+    padding: 10px 0 10px 0;
+}
+
+div.formularz label span {
+    display: block;
+    color: #d0dbdf;
+    font-size: 13px;
+    float: left;
+    width: 100px;
+    text-align: right;
+    padding: 12px 20px 0 0;
+}
+
+.alert {
+    text-align: center;
+    margin: 5px;
+}

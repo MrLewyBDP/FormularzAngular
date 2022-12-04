@@ -1,0 +1,56 @@
+<form #formularz="ngForm" ngNativeValidate>
+  <div class="formularz">
+    <h1>Zamowienie</h1>
+
+    <label>
+      <span>imie i nazwisko</span>
+      <input type="text" class="wpis" ngClass="" id="imieinazwisko" placeholder="imię i nazwisko" [(ngModel)]="imieinazwisko" name="imieinazwisko" required pattern="^.+[ ].+$" #imieinazwiskoForm="ngModel">
+      <div class="alert" *ngIf="imieinazwiskoForm.invalid && imieinazwiskoForm.touched && !imieinazwiskoForm.errors?.['pattern']" >To pole jest wymagane</div>
+      <div class="alert" *ngIf="imieinazwiskoForm.invalid && imieinazwiskoForm.errors?.['pattern']" >Proszę wpisać imię oraz nazwisko</div>
+    </label>
+
+    <label>
+      <span>kod pocztowy</span>
+      <input type="text" class="wpis" ngClass="" id="kodPocztowy" placeholder="34-600" [(ngModel)]="kodPocztowy" name="kodPocztowy" required pattern="^\d{2}[-]\d{3}$" #kodPocztowyForm="ngModel">
+      <div class="alert" *ngIf="kodPocztowyForm.invalid && kodPocztowyForm.touched && !kodPocztowyForm.errors?.['pattern']" >To pole jest wymagane</div>
+      <div class="alert" *ngIf="kodPocztowyForm.invalid && kodPocztowyForm.errors?.['pattern']" >Proszę wpisać poprawny kod pocztowy</div>
+    </label>
+
+    <label>
+      <span>email</span>
+      <input type="text" #emailForm="ngModel" class="wpis" id="email" placeholder="adres email"  [(ngModel)]="email" name="email" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" >
+      <div class="alert" *ngIf="emailForm.invalid && emailForm.touched && !emailForm.errors?.['pattern']" >To pole jest wymagane</div>
+      <div class="alert"  *ngIf="emailForm.invalid && emailForm.errors?.['pattern']" >Proszę wpisać poprawny adres email</div>
+    </label>
+
+    <label>
+      <span>produkt</span>
+      <select name="produkt" id="produkt" [(ngModel)]="produkt" class="produkt" required #produktForm="ngModel">
+        <option value="pralka">Pralka</option>
+        <option value="telewizor">Telewizor</option>
+        <option value="lodowka">Lodowka</option>
+      </select>
+      <div class="alert" *ngIf="produktForm.invalid && produktForm.touched">Wybranie produktu jest wymagane</div>
+    </label>
+
+    <label>
+      <span>ilosc</span>
+      <input type="number" class="wpis" id="ilosc" [(ngModel)]="ilosc" name="ilosc" min="1" max="5" #iloscForm="ngModel">
+      <div class="alert" *ngIf="iloscForm.invalid && iloscForm.touched && iloscForm.errors?.['max']">Maksymalna ilość na jeden zakup to 5</div>
+      <div class="alert" *ngIf="iloscForm.invalid && iloscForm.touched && iloscForm.errors?.['min']">Minimalna ilość na jeden zakup to 1</div>
+    </label>
+
+    <label>
+      <span>wiadomosc</span>
+      <textarea name="wiadomosc" id="wiadomosc" [(ngModel)]="wiadomosc" placeholder="Jeśli masz jakieś uwagi do zamówienia, wpisz je tutaj." class="wiadomosc"></textarea>
+    </label>
+
+    <label>
+      <input type="checkbox" class="" [(ngModel)]="regulamin"  name="regulamin" id="regulamin" required #regulaminForm="ngModel">Akceptacja regulaminu
+      <div class="alert" *ngIf="regulaminForm.invalid && regulaminForm.touched" >Akceptacja regulaminu jest wymagana</div>
+    </label>
+
+    <button type="submit" (mouseenter)="mouseEnter($event)" (mouseout)="mouseLeave($event)" (click)="onSubmit()" class="przycisk" [disabled]="!formularz.form.valid">Przeslij</button>
+    <button class="przycisk" style="background-color: red;" (mouseenter)="mouseEnter($event)" (mouseout)="mouseLeave($event)" (click)="formularz.resetForm()">Resetuj</button>
+  </div>  
+</form>
